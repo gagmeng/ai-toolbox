@@ -19,7 +19,7 @@
 }
 
 .searchInput {
-  max-width: 280px;
+  max-width: 560px;
 }
 
 .summaryText {
@@ -53,7 +53,6 @@
   justify-content: space-between;
   gap: 12px;
   align-items: flex-start;
-  margin-bottom: 8px;
 }
 
 .sessionHeaderMain {
@@ -66,7 +65,6 @@
 
 .sessionTitleRow {
   display: flex;
-  gap: 8px;
   align-items: center;
   min-width: 0;
 }
@@ -89,22 +87,16 @@
   color: var(--color-text-secondary);
 }
 
-.sessionSummary {
-  font-size: 13px;
-  color: var(--color-text-primary);
-  line-height: 1.6;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  word-break: break-word;
-}
-
 .sessionActions {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.actionButton {
+  padding: 0;
+  font-size: 12px;
 }
 
 .loadMore {
@@ -121,17 +113,117 @@
   margin: 24px 0;
 }
 
+.detailModal {
+  :global(.ant-modal-content) {
+    padding: 0;
+    overflow: hidden;
+    background: var(--color-bg-container);
+    border: 1px solid var(--color-border-card);
+    box-shadow:
+      0 18px 48px var(--color-shadow),
+      0 8px 20px var(--color-shadow-secondary);
+  }
+
+  :global(.ant-modal-body) {
+    padding: 0;
+  }
+}
+
+.detailShell {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailHero {
+  padding: 18px 20px 16px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-container);
+}
+
+.detailHeroTop {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.detailHeroMain {
+  min-width: 0;
+  flex: 1;
+}
+
+.detailHeroActions {
+  justify-content: flex-end;
+}
+
+.detailHeroTitle {
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.detailHeroSummary {
+  max-width: 760px;
+  margin-top: 6px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.detailMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.detailMetaCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-bg-container);
+  box-shadow: none;
+}
+
+.detailMetaLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.detailMetaValue {
+  color: var(--color-text-primary);
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.detailMetaMono {
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+}
+
 .detailLayout {
   display: flex;
-  gap: 16px;
-  min-height: 480px;
+  gap: 0;
+  min-height: 560px;
+  background: var(--color-bg-container);
 }
 
 .tocPane {
-  width: 260px;
-  flex: 0 0 260px;
+  width: 290px;
+  flex: 0 0 290px;
   border-right: 1px solid var(--color-border);
-  padding-right: 16px;
+  padding: 20px 18px;
+  background: var(--color-bg-container);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -143,34 +235,70 @@
   justify-content: space-between;
 }
 
+.tocCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--color-bg-container);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
 .tocList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  max-height: 560px;
+  gap: 10px;
+  max-height: 620px;
   overflow-y: auto;
 }
 
 .tocButton {
   width: 100%;
   text-align: left;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
   border: 1px solid var(--color-border);
-  border-radius: 10px;
+  border-radius: 14px;
   background: var(--color-bg-container);
   color: var(--color-text-primary);
-  padding: 10px 12px;
+  padding: 12px;
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tocButton:hover {
   border-color: var(--color-border-secondary);
-  background: var(--color-bg-hover);
+  background: var(--color-bg-container);
+  box-shadow: 0 6px 16px var(--color-shadow-secondary);
+}
+
+.tocIndex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-container);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .tocPreview {
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.55;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -183,23 +311,19 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.detailMeta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 12px;
-  border: 1px solid var(--color-border-card);
-  border-radius: 12px;
+  padding: 16px;
   background: var(--color-bg-container);
 }
 
 .detailToolbar {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-bg-container);
 }
 
 .detailToolbarLeft {
@@ -210,47 +334,214 @@
   min-width: 0;
 }
 
+.detailSearchInput {
+  flex: 1;
+}
+
+.detailCountBadge {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-bg-container);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.detailPrimaryAction,
+.detailSecondaryAction {
+  min-height: 36px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.detailPrimaryAction {
+  border-color: transparent;
+  background: var(--color-text-primary);
+  color: var(--color-bg-container);
+}
+
+.detailPrimaryAction:hover,
+.detailPrimaryAction:focus {
+  border-color: transparent !important;
+  background: color-mix(in srgb, var(--color-text-primary) 88%, var(--color-bg-container)) !important;
+  color: var(--color-bg-container) !important;
+}
+
+.detailSecondaryAction {
+  border-color: var(--color-border-secondary);
+  background: transparent;
+  color: var(--color-text-primary);
+}
+
+.detailSecondaryAction:hover,
+.detailSecondaryAction:focus {
+  border-color: var(--color-text-primary) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.messagesPanel {
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: var(--color-bg-container);
+  box-shadow: none;
+}
+
 .messagesList {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-height: 560px;
+  gap: 10px;
+  max-height: 100%;
+  min-height: 0;
   overflow-y: auto;
-  padding-right: 4px;
+  padding: 2px 0 6px;
 }
 
 .messageCard {
-  border: 1px solid var(--color-border-card);
-  border-radius: 12px;
-  padding: 12px;
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 14px 16px 14px 56px;
   background: var(--color-bg-container);
+  box-shadow: none;
 }
 
 .messageCardActive {
-  border-color: var(--color-border-secondary);
-  box-shadow: 0 0 0 2px var(--color-bg-selected);
+  border-color: color-mix(in srgb, var(--color-text-primary) 18%, var(--color-border-secondary));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-text-primary) 10%, transparent),
+    0 8px 20px var(--color-shadow-secondary);
+}
+
+.messageCardUser {
+  border-color: color-mix(in srgb, var(--color-text-primary) 8%, var(--color-border));
+}
+
+.messageCardAssistant {
+  border-color: color-mix(in srgb, var(--color-text-primary) 12%, var(--color-border));
+}
+
+.messageCardTool {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--color-text-secondary) 30%, var(--color-border));
+}
+
+.messageCardSystem {
+  border-color: color-mix(in srgb, var(--color-text-tertiary) 35%, var(--color-border));
+}
+
+.messageRail {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24px;
+}
+
+.messageNode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-container);
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.messageLine {
+  flex: 1;
+  width: 1px;
+  margin-top: 6px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-border-secondary) 75%, transparent), transparent);
 }
 
 .messageHeader {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 8px;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
 }
 
 .messageHeaderLeft {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.messageRoleTag {
+  margin-inline-end: 0;
+  border-radius: 999px;
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.messageRoleTagUser {
+  background: color-mix(in srgb, var(--color-text-primary) 8%, var(--color-bg-hover));
+}
+
+.messageRoleTagAssistant {
+  background: color-mix(in srgb, var(--color-bg-elevated) 84%, var(--color-bg-hover));
+}
+
+.messageRoleTagTool {
+  background: color-mix(in srgb, var(--color-text-tertiary) 12%, var(--color-bg-hover));
+  color: var(--color-text-secondary);
+}
+
+.messageRoleTagSystem {
+  background: color-mix(in srgb, var(--color-text-tertiary) 18%, var(--color-bg-hover));
+  color: var(--color-text-secondary);
+}
+
+.messageTimestamp {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.messageCopyButton,
+.messageExpandButton {
+  padding: 0;
+  font-size: 12px;
+}
+
+.messageCopyButton {
+  color: var(--color-text-secondary);
+}
+
+.messageCopyButton:hover,
+.messageExpandButton:hover {
+  color: var(--color-text-primary) !important;
 }
 
 .messageContent {
   white-space: pre-wrap;
   word-break: break-word;
-  line-height: 1.65;
+  line-height: 1.8;
   color: var(--color-text-primary);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .messageCollapsed {
@@ -260,10 +551,21 @@
   overflow: hidden;
 }
 
+.messageCollapsedCompact {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
 .messageFooter {
   display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 24px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
 }
 
 .mobileTocButton {
@@ -271,15 +573,73 @@
 }
 
 @media (max-width: 1100px) {
+  .detailHeroTop {
+    flex-direction: column;
+  }
+
+  .detailHeroActions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .detailMetaGrid {
+    grid-template-columns: 1fr;
+  }
+
   .detailLayout {
     flex-direction: column;
+    min-height: auto;
   }
 
   .tocPane {
     display: none;
   }
 
+  .detailMain {
+    padding: 16px;
+  }
+
   .mobileTocButton {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .detailHero {
+    padding: 16px 16px 14px;
+  }
+
+  .detailHeroTitle {
+    font-size: 20px;
+  }
+
+  .detailToolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .detailToolbarLeft {
+    width: 100%;
+  }
+
+  .detailCountBadge {
+    align-self: flex-start;
+  }
+
+  .detailPrimaryAction,
+  .detailSecondaryAction {
+    width: 100%;
+  }
+
+  .messageHeader {
+    flex-direction: column;
+  }
+
+  .messageCard {
+    padding: 14px 14px 14px 50px;
+  }
+
+  .messageContent {
+    font-size: 13px;
   }
 }
