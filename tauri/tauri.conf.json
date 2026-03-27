@@ -25,16 +25,16 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "createUpdaterArtifacts": true
+    "createUpdaterArtifacts": false
   },
   "plugins": {
     "shell": {
       "open": true
     },
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFENkM1QTI3OTA0MkE3M0YKUldRL3AwS1FKMXBzSGVCZUJqSWNvcXNLcExuRGhlQkovcXhyTEpOTU96K2JpQytGbkZQbDZHV20K",
+      "pubkey": "YOUR_PUBLIC_KEY_HERE",
       "endpoints": [
-        "https://github.com/coulsontl/ai-toolbox/releases/latest/download/latest.json"
+        "https://github.com/gagmeng/ai-toolbox/releases/latest/download/latest.json"
       ]
     }
   }
